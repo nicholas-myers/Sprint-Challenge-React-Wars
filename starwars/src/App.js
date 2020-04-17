@@ -22,10 +22,8 @@ const CardContainer = styled.div`
 `;
 
 const ButtonContainer = styled.div`
-
   width: 100%;
-
-`
+`;
 
 const Button = styled.button`
   margin: 0 3%;
@@ -48,7 +46,7 @@ const App = () => {
 
   const [starWarsCharacters, setStarWarsCharacters] = useState([]);
   const [nextPage, setNextPage] = useState("");
-  const [previousPage, setPreviousPage] = useState("");
+  const [previousPage, setPreviousPage] = useState(null);
   const [getUrl, setGetUrl] = useState("https://swapi.py4e.com/api/people/");
 
   useEffect(() => {
@@ -58,9 +56,10 @@ const App = () => {
         setStarWarsCharacters(res.data.results);
         setNextPage(res.data.next);
         setPreviousPage(res.data.previous);
+        console.log("I'm firing");
       })
       .catch((error) => {
-        debugger;
+        console.log(error);
       });
   }, [getUrl]);
 
