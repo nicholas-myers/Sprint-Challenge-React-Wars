@@ -14,8 +14,8 @@ props is the information/data being passed into a component.
 
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
 
-sideEffects rerender the page based on something happening in your first argument which is a function, syncing is based on your second argument, if you want to sync with something you put it inside an array
+sideEffects rerender the page based on something happening in your first argument which is a function, syncing is based on your second argument, if you want to sync with something you put it inside what's called a dependency array
 
 useEffect(()=> {
 
-}, ["what to watch for" `your useEffect will fire when this state changes`])
+}, ["what to watch for" -- `your useEffect will fire when this state changes`])
