@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Character from "./components/Character"
 import "./App.css";
 
 const App = () => {
@@ -33,13 +34,7 @@ const App = () => {
       <div>
         {
         starWarsCharacters.map((character, index) => 
-          <div key={index} className="characterCard">
-            <h2>{character.name}</h2>
-            <p>Gender: {character.gender}</p>
-            <p>Birth Year: {character.birth_year}</p>
-            <p>Height: {character.height}</p>
-            <p>Mass: {character.mass}</p>
-          </div>
+          <Character key={index}  character={character} />
       )
       }
       </div>
