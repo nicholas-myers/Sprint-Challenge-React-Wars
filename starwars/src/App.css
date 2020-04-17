@@ -1,12 +1,11 @@
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.Header {
-  color: #443e3e;
-  text-shadow: 1px 1px 5px #fff;
-}
-/* write your parent styles in here for your App.js */
-.characterCard {
-  border: 1px solid aqua;
-  background-color: white;
+
+p {
+  font-weight: bold;
 }
