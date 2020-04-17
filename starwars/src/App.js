@@ -30,7 +30,19 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <div>{starWarsCharacters.map((character) => console.log(character))}</div>
+      <div>
+        {
+        starWarsCharacters.map((character, index) => 
+          <div key={index} className="characterCard">
+            <h2>{character.name}</h2>
+            <p>Gender: {character.gender}</p>
+            <p>Birth Year: {character.birth_year}</p>
+            <p>Height: {character.height}</p>
+            <p>Mass: {character.mass}</p>
+          </div>
+      )
+      }
+      </div>
     </div>
   );
 };
