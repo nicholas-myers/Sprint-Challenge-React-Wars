@@ -34,6 +34,7 @@ const App = () => {
 
   const [starWarsCharacters, setStarWarsCharacters] = useState([]);
   const [nextPage, setNextPage] = useState("")
+  const [previousPage, setPreviousPage] =useState("")
   const [getUrl, setGetUrl] = useState("https://swapi.py4e.com/api/people/")
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const App = () => {
       .then((res) => {
         setStarWarsCharacters(res.data.results);
         setNextPage(res.data.next);
+        setPreviousPage(res.data.previous)
         
       })
       .catch((error) => {
@@ -50,12 +52,12 @@ const App = () => {
   }, [getUrl]);
 
   // console.log(starWarsData)
-  console.log(nextPage)
+  // console.log(nextPage)
   return (
     <div className="App">
       <PageTitle>Characters</PageTitle>
         <div>
-          <button>Previous</button>
+          <button onClick={event => setGetUrl(previousPage)}>Previous</button>
           <button onClick={event => setGetUrl(nextPage)}>Next</button>
         </div>
       <CardContainer>
