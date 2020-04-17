@@ -4,9 +4,10 @@ import React from "react";
 import styled from "styled-components"
 
 const CharacterCard = styled.div`
-    background-color: white;
-    border: 1px solid black;
-    border-radius: 1rem;
+    background-color: #414a4c;
+    color: #FDCC0D;
+    border: 3px solid #FDCC0D;
+    outline: 3px solid black;
     padding: 1%;
     margin: 3% 0;
     width: 40%;
