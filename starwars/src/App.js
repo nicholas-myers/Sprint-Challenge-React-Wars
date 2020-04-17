@@ -20,6 +20,8 @@ const CardContainer = styled.div`
   max-width: 100%;
 `
 
+
+
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
@@ -31,23 +33,31 @@ const App = () => {
   ///set my state for the Data to manipulate
 
   const [starWarsCharacters, setStarWarsCharacters] = useState([]);
+  const [nextPage, setNextPage] = useState("")
+  const [getUrl, setGetUrl] = useState("https://swapi.py4e.com/api/people/")
 
   useEffect(() => {
     axios
-      .get(`https://swapi.py4e.com/api/people/`)
+      .get(getUrl)
       .then((res) => {
         setStarWarsCharacters(res.data.results);
+        setNextPage(res.data.next);
+        
       })
       .catch((error) => {
         debugger;
       });
-  }, []);
+  }, [getUrl]);
 
   // console.log(starWarsData)
-
+  console.log(nextPage)
   return (
     <div className="App">
       <PageTitle>Characters</PageTitle>
+        <div>
+          <button>Previous</button>
+          <button onClick={event => setGetUrl(nextPage)}>Next</button>
+        </div>
       <CardContainer>
         {
         starWarsCharacters.map((character, index) => 
